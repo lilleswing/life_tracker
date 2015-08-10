@@ -15,7 +15,7 @@ import com.lilleswing.lifetracker.server.guice.filters.MyExceptionMapper;
 import com.lilleswing.lifetracker.server.guice.filters.UnitOfWorkFilter;
 
 public class ServletContextListener extends GuiceServletContextListener {
-    private static final String SERVICES_PACKAGE = "edu.gtech.sidetracker.web.server";
+    private static final String SERVICES_PACKAGE = "com.lilleswing.lifetracker.server.server";
 
     @Override
     protected Injector getInjector() {

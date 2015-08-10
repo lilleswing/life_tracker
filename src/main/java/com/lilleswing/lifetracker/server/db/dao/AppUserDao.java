@@ -41,6 +41,13 @@ public class AppUserDao implements Dao<AppUser> {
         return getById(appUser.getId());
     }
 
+    public AppUser getSuperAdminAwesomeUser() {
+        final Session session = sessionFactory.getCurrentSession();
+        final Criteria criteria = session.createCriteria(AppUser.class);
+        criteria.add(Restrictions.eq("username", "lilleswing"));
+        return (AppUser) criteria.uniqueResult();
+    }
+
     public AppUser getByNamePassword(final String username, final String password) {
         final Session session = sessionFactory.getCurrentSession();
         final Criteria criteria = session.createCriteria(AppUser.class);

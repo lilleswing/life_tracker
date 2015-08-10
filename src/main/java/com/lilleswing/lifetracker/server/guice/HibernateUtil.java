@@ -4,6 +4,7 @@ package com.lilleswing.lifetracker.server.guice;
 import com.google.inject.Inject;
 import com.google.inject.Singleton;
 import com.lilleswing.lifetracker.server.db.model.AppUser;
+import com.lilleswing.lifetracker.server.db.model.Task;
 import org.hibernate.SessionFactory;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;
@@ -16,7 +17,6 @@ public class HibernateUtil {
 
     @Inject
     public HibernateUtil() {
-        destroy();
         sessionFactory= buildSessionFactory();
     }
 
@@ -25,6 +25,7 @@ public class HibernateUtil {
         try {
             final Configuration cfg = new Configuration();
             cfg.addAnnotatedClass(AppUser.class);
+            cfg.addAnnotatedClass(Task.class);
             cfg.configure();
             final ServiceRegistry serviceRegistry = new StandardServiceRegistryBuilder()
                     .applySettings(cfg.getProperties()).build();
@@ -37,8 +38,5 @@ public class HibernateUtil {
 
     public SessionFactory getSessionFactory() {
         return sessionFactory;
-    }
-
-    private void destroy() {
     }
 }

@@ -5,5 +5,15 @@ CREATE TABLE app_user (
     password varchar(1024)
 );
 
-INSERT INTO app_user (username, email, password) 
+INSERT INTO app_user (username, email, password)
 VALUES ('lilleswing', 'lilleswing@gmail.com', 'password');
+
+CREATE TABLE task (
+    id SERIAL PRIMARY KEY ,
+    name varchar(1024),
+    description text,
+    difficulty INTEGER
+);
+
+INSERT INTO task (name, description, difficulty)
+    VALUES ('Watch The Terminator', 'Terminator Description', 1);

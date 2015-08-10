@@ -38,12 +38,17 @@ public class BasicAuthFilter implements Filter {
     public void init(final FilterConfig filterConfig) throws ServletException {
     }
 
+    /**
+     *  TODO(LESWING) actually have auth
+     */
     @Override
     public void doFilter(final ServletRequest servletRequest,
                          final ServletResponse servletResponse,
                          final FilterChain filterChain) throws IOException, ServletException {
         if (servletRequest instanceof HttpServletRequestWrapper) {
-            getUserNameAndPassword((HttpServletRequestWrapper) servletRequest);
+            final AppUser appUser = appUserDao.getSuperAdminAwesomeUser();
+            requestStateProvider.get().setAppUser(appUser);
+            //getUserNameAndPassword((HttpServletRequestWrapper) servletRequest);
         }
         filterChain.doFilter(servletRequest, servletResponse);
     }
