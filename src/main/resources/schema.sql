@@ -17,3 +17,16 @@ CREATE TABLE task (
 
 INSERT INTO task (name, description, difficulty)
     VALUES ('Watch The Terminator', 'Terminator Description', 1);
+
+CREATE TABLE tasks_users (
+    id SERIAL PRIMARY KEY,
+    task_id BIGINT,
+    app_user_id BIGINT,
+    achieved BOOLEAN,
+    date_achieved TIMESTAMP
+);
+
+INSERT INTO tasks_users (task_id, app_user_id, achieved, date_achieved)
+    VALUES (1,1,TRUE , now());
+
+

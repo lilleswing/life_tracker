@@ -33,7 +33,7 @@ public class TaskDao implements Dao<Task> {
     }
 
     @Override
-    public Task add(Task task) {
-        return null;
+    public Task add(final Task task) {
+        throw new UnsupportedOperationException("Not yet implemented");
     }
 }

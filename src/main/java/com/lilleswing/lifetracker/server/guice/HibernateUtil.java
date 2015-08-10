@@ -5,6 +5,7 @@ import com.google.inject.Inject;
 import com.google.inject.Singleton;
 import com.lilleswing.lifetracker.server.db.model.AppUser;
 import com.lilleswing.lifetracker.server.db.model.Task;
+import com.lilleswing.lifetracker.server.db.model.TaskUser;
 import org.hibernate.SessionFactory;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;
@@ -26,6 +27,7 @@ public class HibernateUtil {
             final Configuration cfg = new Configuration();
             cfg.addAnnotatedClass(AppUser.class);
             cfg.addAnnotatedClass(Task.class);
+            cfg.addAnnotatedClass(TaskUser.class);
             cfg.configure();
             final ServiceRegistry serviceRegistry = new StandardServiceRegistryBuilder()
                     .applySettings(cfg.getProperties()).build();
