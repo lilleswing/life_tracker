@@ -1,2 +1,6 @@
-# life_tracker
-Gamification for Watching Movies and TV Shows
+# LifeTracker
+Get alerts when you do something cool.
+
+
+## Notes
+Postgres is set to port 3247 and not configurable.
